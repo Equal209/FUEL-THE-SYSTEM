@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fuel the System - Food</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #fce4ec, #e0f7fa);
+      background-size: 400% 400%;
+      animation: gradientBG 20s ease infinite;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      color: #333;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 2em;
+      background-color: rgba(255,255,255,0.8);
+      backdrop-filter: blur(5px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .site-title {
+      font-size: 1.5em;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #ef5350;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropbtn {
+      background-color: #ba68c8;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      border-radius: 8px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover { background-color: #f1f1f1; }
+    .dropdown:hover .dropdown-content { display: block; }
+
+    main {
+      padding: 2em;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2em;
+    }
+
+    .food-card {
+      background-color: rgba(255,255,255,0.9);
+      border-radius: 12px;
+      padding: 1em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .food-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .food-icon {
+      font-size: 2em;
+    }
+
+    .food-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin: 0.5em 0;
+    }
+
+    .food-body {
+      font-size: 0.95em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="site-title">FUEL THE SYSTEM</div>
+    <div class="dropdown">
+      <button class="dropbtn">☰ Menu</button>
+      <div class="dropdown-content">
+        <a href="index.html">Home</a>
+        <a href="anatomy.html">Human Anatomy</a>
+        <a href="food.html">Food</a>
+        <a href="index.html#signup">Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Repeat this block for 20 food items -->
+    <div class="food-card">
+      <div class="food-icon">🥦</div>
+      <div class="food-title">Broccoli</div>
+      <div class="food-body">Rich in vitamin K and calcium, broccoli supports bone health and immune function. It contains sulforaphane, known to aid detoxification in the liver and help prevent cancer through gene regulation.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🍇</div>
+      <div class="food-title">Grapes</div>
+      <div class="food-body">Packed with antioxidants like resveratrol, grapes protect brain and heart tissue from oxidative stress. They improve blood flow and may reduce risk of Alzheimer’s by protecting neural pathways.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🥕</div>
+      <div class="food-title">Carrots</div>
+      <div class="food-body">Carrots are rich in beta-carotene, which converts to vitamin A for improved vision and skin health. Their antioxidants support lung health and cellular repair.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🍓</div>
+      <div class="food-title">Strawberries</div>
+      <div class="food-body">These berries are high in vitamin C and manganese. They enhance collagen production for skin, reduce blood pressure, and improve heart function.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🫐</div>
+      <div class="food-title">Blueberries</div>
+      <div class="food-body">Blueberries are brain boosters due to their anthocyanins. Regular consumption improves memory and delays age-related cognitive decline.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🍌</div>
+      <div class="food-title">Bananas</div>
+      <div class="food-body">Rich in potassium and fiber, bananas help regulate heart rhythm and digestive health. They also aid muscle recovery post-exercise.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🍠</div>
+      <div class="food-title">Sweet Potatoes</div>
+      <div class="food-body">High in beta-carotene and complex carbs, they provide energy and improve gut microbiome health, supporting digestion and immunity.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🥑</div>
+      <div class="food-title">Avocados</div>
+      <div class="food-body">Avocados provide heart-healthy monounsaturated fats and folate. They reduce inflammation and support brain development and skin hydration.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🍋</div>
+      <div class="food-title">Lemons</div>
+      <div class="food-body">Lemons aid digestion, boost immunity, and promote skin glow with vitamin C. Citric acid in lemons helps prevent kidney stones.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🥬</div>
+      <div class="food-title">Spinach</div>
+      <div class="food-body">Loaded with iron and folate, spinach boosts red blood cell production and supports neural tube development in early pregnancy.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🥜</div>
+      <div class="food-title">Almonds</div>
+      <div class="food-body">Almonds support brain health, lower cholesterol, and provide vitamin E for skin and cell protection from oxidative damage.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🍉</div>
+      <div class="food-title">Watermelon</div>
+      <div class="food-body">Hydrating and rich in lycopene, watermelon improves blood flow and skin elasticity. It also supports cardiovascular wellness.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🥒</div>
+      <div class="food-title">Cucumber</div>
+      <div class="food-body">High in water content and silica, cucumber supports skin health and hydration. It also soothes inflammation in joints and the gut.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🥭</div>
+      <div class="food-title">Mango</div>
+      <div class="food-body">Mangoes contain enzymes that aid digestion and fiber for gut health. Rich in vitamin A, they support eye and immune system function.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🍵</div>
+      <div class="food-title">Green Tea</div>
+      <div class="food-body">Green tea is full of catechins and L-theanine. It boosts metabolism, supports brain focus, and reduces inflammation and heart risk.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🍊</div>
+      <div class="food-title">Oranges</div>
+      <div class="food-body">A powerhouse of vitamin C, oranges boost immunity, aid iron absorption, and enhance skin texture and healing.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🧄</div>
+      <div class="food-title">Garlic</div>
+      <div class="food-body">Garlic contains allicin which has antibacterial and heart-protective properties. It also enhances immune response and may reduce blood pressure.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🫒</div>
+      <div class="food-title">Olives</div>
+      <div class="food-body">Olives and olive oil provide healthy fats that reduce inflammation and protect blood vessels and the brain.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🍍</div>
+      <div class="food-title">Pineapple</div>
+      <div class="food-body">Pineapple contains bromelain, an enzyme that supports digestion and reduces swelling. It’s also rich in vitamin C for immunity.</div>
+    </div>
+
+    <div class="food-card">
+      <div class="food-icon">🥤</div>
+      <div class="food-title">Smoothies</div>
+      <div class="food-body">A blend of fruits, greens, and healthy fats can deliver vitamins and fiber to energize the body and nourish organs effectively.</div>
+    </div>
+  </main>
+</body>
+</html>
