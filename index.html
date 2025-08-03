@@ -1,35 +1,260 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fuel the System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #fff9c4, #ffe0b2);
+      background-size: 600% 600%;
+      animation: gradientBG 20s ease infinite;
+      color: #333;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 2em;
+      background-color: rgba(255,255,255,0.8);
+      backdrop-filter: blur(5px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .site-title {
+      font-size: 1.5em;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #00897b;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropbtn {
+      background-color: #81d4fa;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      border-radius: 8px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover { background-color: #f1f1f1; }
+    .dropdown:hover .dropdown-content { display: block; }
+
+    main.section {
+      padding: 3em 2em;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #00796b;
+    }
+
+    .signup {
+      margin-top: 3em;
+    }
+
+    .signup input {
+      padding: 0.5em;
+      width: 240px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .signup button {
+      padding: 0.6em 1em;
+      margin-left: 0.5em;
+      border: none;
+      background-color: #4db6ac;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .signup button:hover {
+      background-color: #00897b;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: center;
+      margin-top: 2em;
+      gap: 2em;
+    }
+
+    .icon {
+      font-size: 2rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .extra-feature {
+      margin-top: 4em;
+    }
+
+    .extra-feature select {
+      padding: 0.5em;
+      font-size: 1em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .feature-result {
+      margin-top: 1em;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: left;
+      padding: 2em;
+      background-color: rgba(255,255,255,0.5);
+      font-size: 0.85em;
+      color: #555;
+    }
+
+    footer p {
+      margin: 0;
+      position: absolute;
+      bottom: 0;
+      left: 1em;
+    }
+  </style>
 </head>
 <body>
-<nav class="navbar">
-    <div class="navbar__container">
-        <a href="/" id="navbar__logo"> FUEL THE SYSTEM</a>
-        <div class="navbar__toggle" id="mobile-menu">
-              <span class="bar"></span>
-                <span class="bar"></span>
-                  <span class="bar"></span>
-        </div>
-        <ul class="navbar__menu">
-            <li class="navbar__item">
-            <a href="/" class="navbar__links"> Home </a>
-            </li>
-            <li class="navbar__links">
- <a href="/Anatomy.html"class="navbar__links"> Anatomy </a>
-            </li>
-            <li class="navbar__links">
-                 <a href="/" class="navbar__links"> Foods </a>
-            </li>
-            <li class="navbar__links"><a href="/"
-            class="button">Sign Up</a></li>
-        </ul>
-        </div>
-    </nav>
-<script src="app.js"></script>
-    </body>
+  <header>
+    <div class="site-title">FUEL THE SYSTEM</div>
+    <div class="dropdown">
+      <button class="dropbtn">☰ Menu</button>
+      <div class="dropdown-content">
+        <a href="index.html">Home</a>
+        <a href="anatomy.html">Human Anatomy</a>
+        <a href="food.html">Food</a>
+        <a href="#signup">Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <h1>Fuel the System</h1>
+    <p>This site is dedicated to spreading awareness of the importance of healthy food and the human body's systems. Built from a love of science and medicine, this project aims to inform and inspire.</p>
+
+    <div class="icons">
+      <div class="icon">🌿</div>
+      <div class="icon">💪</div>
+      <div class="icon">🧠</div>
+    </div>
+
+    <div class="extra-feature">
+      <label for="body-select">Choose a system to explore:</label>
+      <select id="body-select" onchange="displaySystemInfo()">
+        <option value="">-- Select --</option>
+        <option value="skeletal">Skeletal System</option>
+        <option value="muscular">Muscular System</option>
+        <option value="nervous">Nervous System</option>
+      </select>
+      <div class="feature-result" id="result"></div>
+    </div>
+
+    <!-- 🔽 Inserted Trusted Medical Resources Dropdown 🔽 -->
+    <div class="extra-feature">
+      <label for="trusted-sites">Explore Trusted Medical Resources:</label>
+      <select id="trusted-sites" onchange="openMedicalSite()">
+        <option value="">-- Select a Site --</option>
+        <option value="https://www.mayoclinic.org">🔬 Mayo Clinic</option>
+        <option value="https://www.nih.gov">🧬 NIH (National Institutes of Health)</option>
+        <option value="https://medlineplus.gov">📚 MedlinePlus</option>
+        <option value="https://my.clevelandclinic.org">❤️ Cleveland Clinic</option>
+      </select>
+      <div class="feature-result" id="site-info">
+        Thank you for Visiting. Choose a site to learn more about reliable health topics.
+      </div>
+    </div>
+    <!-- 🔼 End Insert -->
+
+    <div id="signup" class="signup">
+      <h2>Sign up for updates</h2>
+      <input type="email" placeholder="Enter your email" />
+      <button onclick="alert('Thanks for signing up! You will now receive health tips, body system facts, and food recommendations.')">Sign Up</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>Contact: <a href="mailto:dionjones902@gmail.com">dionjones902@gmail.com</a> | © 2025 Fuel the System. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function displaySystemInfo() {
+      const select = document.getElementById('body-select');
+      const result = document.getElementById('result');
+      let message = '';
+
+      switch (select.value) {
+        case 'skeletal':
+          message = 'The skeletal system provides structure, protection, and support for movement.';
+          break;
+        case 'muscular':
+          message = 'The muscular system allows body movement and generates heat.';
+          break;
+        case 'nervous':
+          message = 'The nervous system processes information and coordinates actions.';
+          break;
+        default:
+          message = '';
+      }
+
+      result.textContent = message;
+    }
+
+    function openMedicalSite() {
+      const select = document.getElementById('trusted-sites');
+      const url = select.value;
+      if (url) {
+        window.open(url, '_blank');
+      }
+    }
+  </script>
+  <script src="app.js"></script>
+</body>
 </html>
