@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Human Anatomy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    header, footer {
+      background: #4db6ac;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+
+    main {
+      padding: 2em;
+      text-align: center;
+    }
+
+    .body-figure {
+      position: relative;
+      width: 200px;
+      margin: 2em auto;
+      height: 500px;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .body-part {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.8;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+      animation: fadeInScale 1s ease-out;
+    }
+
+    .body-part:hover {
+      transform: scale(1.1);
+    }
+
+    /* Body shape */
+    .head {
+      width: 60px;
+      height: 60px;
+      background: #ffccbc;
+      top: 0;
+      left: 70px;
+      animation-delay: 0.2s;
+    }
+
+    .torso {
+      width: 80px;
+      height: 150px;
+      background: #ffe082;
+      top: 60px;
+      left: 60px;
+      border-radius: 40px / 75px;
+      animation-delay: 0.3s;
+    }
+
+    .left-arm, .right-arm {
+      width: 30px;
+      height: 120px;
+      background: #a5d6a7;
+      border-radius: 15px;
+      top: 70px;
+    }
+
+    .left-arm { left: 20px; animation-delay: 0.4s; }
+    .right-arm { right: 20px; animation-delay: 0.5s; }
+
+    .left-leg, .right-leg {
+      width: 30px;
+      height: 140px;
+      background: #90caf9;
+      border-radius: 15px;
+      top: 210px;
+    }
+
+    .left-leg { left: 55px; animation-delay: 0.6s; }
+    .right-leg { left: 115px; animation-delay: 0.7s; }
+
+    /* Organs */
+    .organ {
+      background: rgba(255, 0, 0, 0.8);
+      border: 2px solid white;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    .brain {
+      width: 40px;
+      height: 30px;
+      background: #e1bee7;
+      top: 5px;
+      left: 80px;
+    }
+
+    .heart {
+      width: 30px;
+      height: 30px;
+      background: #ef5350;
+      top: 95px;
+      left: 85px;
+    }
+
+    .stomach {
+      width: 30px;
+      height: 40px;
+      background: #ffca28;
+      top: 140px;
+      left: 85px;
+    }
+
+    .intestines {
+      width: 50px;
+      height: 60px;
+      background: #8d6e63;
+      top: 190px;
+      left: 75px;
+    }
+
+    .kidneys {
+      width: 15px;
+      height: 25px;
+      background: #7e57c2;
+      top: 130px;
+    }
+
+    .kidneys.left { left: 70px; }
+    .kidneys.right { left: 115px; }
+
+    #description {
+      margin-top: 2em;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 1.5em;
+      background: white;
+      border-left: 5px solid #4db6ac;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      font-size: 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease-in-out;
+    }
+
+    #description.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .systems-list {
+      margin-top: 3em;
+      text-align: left;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #fff;
+      padding: 1em;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .systems-list h2 {
+      color: #4db6ac;
+    }
+
+    .systems-list li {
+      margin-bottom: 1em;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInScale {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Fuel the System – Interactive Human Anatomy</h1>
+  </header>
+
+  <main>
+    <p>Click on an organ to learn more about it.</p>
+    <div class="body-figure">
+
+      <!-- Body parts -->
+      <div class="body-part head"></div>
+      <div class="body-part torso"></div>
+      <div class="body-part left-arm"></div>
+      <div class="body-part right-arm"></div>
+      <div class="body-part left-leg"></div>
+      <div class="body-part right-leg"></div>
+
+      <!-- Organs -->
+      <div class="body-part organ brain" data-info="🧠 The brain controls everything we do — from thinking and feeling to breathing and moving."></div>
+      <div class="body-part organ heart" data-info="❤️ The heart pumps blood through your body, supplying oxygen and nutrients. Keep it healthy!"></div>
+      <div class="body-part organ stomach" data-info="🥘 The stomach breaks down food with acid and enzymes, starting digestion."></div>
+      <div class="body-part organ intestines" data-info="🔀 The intestines absorb nutrients and help eliminate waste. Gut health is essential!"></div>
+      <div class="body-part organ kidneys left" data-info="🕒 The kidneys filter your blood and control fluid levels. Vital for overall health."></div>
+      <div class="body-part organ kidneys right" data-info="🕒 The kidneys work in pairs to manage waste and regulate blood pressure."></div>
+    </div>
+
+    <div id="description">Click on an organ to learn more about it.</div>
+
+    <div class="systems-list">
+      <h2>🔬 Main Body Systems & Their Functions</h2>
+      <ul>
+        <li><strong>1. Skeletal System 🦴</strong><br>Function: Provides structure, support, and protection for organs.<br>Includes: Bones, cartilage, ligaments.<br>Fun Fact: Humans have 206 bones.</li>
+        <li><strong>2. Muscular System 💪</strong><br>Function: Allows movement, maintains posture, and produces heat.<br>Includes: Skeletal muscles, tendons.</li>
+        <li><strong>3. Digestive System 🍽️</strong><br>Function: Breaks down food into nutrients your body uses.<br>Includes: Mouth, esophagus, stomach, intestines, liver.<br>Fun Fact: The small intestine is over 20 feet long!</li>
+        <li><strong>4. Respiratory System 🌬️</strong><br>Function: Brings in oxygen and removes carbon dioxide.<br>Includes: Nose, lungs, trachea.<br>Fact: Your lungs contain about 600 million alveoli (air sacs).</li>
+        <li><strong>5. Circulatory System ❤️</strong><br>Function: Moves blood, oxygen, nutrients, and hormones throughout the body.<br>Includes: Heart, blood vessels (arteries, veins, capillaries).</li>
+        <li><strong>6. Nervous System 🧠</strong><br>Function: Sends signals throughout the body to control actions and thoughts.<br>Includes: Brain, spinal cord, nerves.</li>
+        <li><strong>7. Endocrine System 🧬</strong><br>Function: Produces hormones that regulate metabolism, growth, and mood.<br>Includes: Thyroid, pituitary gland, pancreas, adrenal glands.</li>
+        <li><strong>8. Immune System 🛡️</strong><br>Function: Defends against infections and diseases.<br>Includes: White blood cells, lymph nodes, spleen.</li>
+        <li><strong>9. Urinary System 🚽</strong><br>Function: Filters waste from the blood and removes it as urine.<br>Includes: Kidneys, bladder, urethra.</li>
+        <li><strong>10. Reproductive System 🧬</strong><br>Function: Allows reproduction and development of offspring.<br>Includes: Ovaries, uterus (female); testes, prostate (male).</li>
+        <li><strong>11. Integumentary System 🧴</strong><br>Function: Protects the body; helps regulate temperature.<br>Includes: Skin, hair, nails.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>Contact: <a href="mailto:dionjones902@gmail.com">dionjones902@gmail.com</a></p>
+  </footer>
+
+  <script>
+    const organs = document.querySelectorAll('.organ');
+    const descBox = document.getElementById('description');
+
+    organs.forEach(organ => {
+      organ.addEventListener('click', () => {
+        descBox.textContent = organ.getAttribute('data-info');
+        descBox.classList.add('visible');
+      });
+    });
+  </script>
+
+</body>
+</html>
